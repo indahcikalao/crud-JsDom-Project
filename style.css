@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+body {
+  background-color: rgb(240, 233, 223);
+  padding: 1em;
+  font-family: poppins;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+p {
+  padding: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  padding: 5px 3px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+aside {
+  width: 30%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+
+footer {
+  /* position: absolute; */
+  /* bottom: 0; */
+  text-align: center;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container button {
+  padding: 6px 10px;
+  background: #ffffff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+button {
+  /* float: right; */
+  padding: 6px 10px;
+  /* margin-top: 8px;
+  margin-right: 16px; */
+  background: #ffffff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+button:hover {
+  background: #e1d6ca;
+}
+
+input {
+  padding: 10px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  border-radius: 10px;
+}
+/* .search-container input[type="text"] {
+  padding: 10px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  border-radius: 10px;
+} */
+
+.box {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 13px;
+  background-color: #fdf4f1;
+  padding: 30px;
+  margin: 0 10px;
+}
+
+.content {
+  display: flex;
+  padding: 30px 0;
+}
+
+.header-container {
+  z-index: 1000;
+}
+
+hr.rounded {
+  border-top: 2px solid #e0d1c8;
+  border-radius: 5px;
+}
+
+.isi {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.form-tambah {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.tambah {
+  width: 100%;
+}
+
+.form-label {
+  font-weight: 500;
+  padding-top: 1.5em;
+}
+
+.tambah-title {
+  text-align: center;
+}
+
+.checkbox {
+  padding-bottom: 1.5em;
+}
+
+#edit-data,
+#logout-nav,
+#login-berhasil,
+#edit-button,
+#add-button,
+#edit-title,
+#add-title {
+  display: none;
+}
+
+#login-berhasil .tambah-title {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
+#edit-data {
+  margin-top: 10px;
+}

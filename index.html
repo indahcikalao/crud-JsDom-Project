@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header class="box header-container">
+      <h1>
+        <a href="/index.html">Cikal's Space</a>
+      </h1>
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search Something" name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <section class="content">
+      <aside class="box">
+        <h2>Navigation</h2>
+        <hr class="rounded" />
+        <ul>
+          <li><a href="/index.html">List</a></li>
+          <li><a href="/tambah.html">Tambah</a></li>
+          <li><a href="/map.html">Map</a></li>
+          <li><a href="/video.html">Video</a></li>
+          <li><a href="/login.html">Login</a></li>
+        </ul>
+      </aside>
+      <section class="box isi">
+        <h2>This is Table</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis, saepe
+          odio nam necessitatibus, culpa laudantium aut delectus pariatur quasi
+          dolorem blanditiis ipsa error cupiditate totam labore consequuntur sit
+          perferendis corrupti!
+        </p>
+
+        <button id="addButton" onclick="showAddForm()">Add Row</button>
+
+        <table style="width: 90%" id="people">
+          <tr>
+            <th style="width: 5%">No.</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>job</th>
+            <th>email</th>
+            <th>action</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Jono</td>
+            <td>34</td>
+            <td>doctor</td>
+            <td>jono123@gmail.com</td>
+            <td>
+              <button onclick="removeRow(this)">Remove</button>
+              <button onclick="showEditForm(this)">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>jjjee</td>
+            <td>54</td>
+            <td>retired</td>
+            <td>jeje@gmail.com</td>
+            <td>
+              <button onclick="removeRow(this)">Remove</button>
+              <button onclick="showEditForm(this)">Edit</button>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>heew</td>
+            <td>32</td>
+            <td>teacher</td>
+            <td>jhee@gmail.com</td>
+            <td>
+              <button onclick="removeRow(this)">Remove</button>
+              <button onclick="showEditForm(this)">Edit</button>
+            </td>
+          </tr>
+        </table>
+
+        <section id="edit-data">
+          <h2 id="edit-title">Edit Data</h2>
+          <h2 id="add-title">Add Data</h2>
+
+          <form class="form-tambah" style="text-align: start">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="janedoe@mail.com"
+              required
+            />
+
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" id="name" placeholder="Jane Doe" />
+
+            <label for="age" class="form-label">age</label>
+            <input
+              type="nuber"
+              class="form-control mb-3"
+              id="age"
+              placeholder="23"
+            />
+
+            <label for="job" class="form-label">Job</label>
+            <input
+              type="text"
+              class="form-control mb-3"
+              id="job"
+              placeholder="designer"
+            />
+
+            <!-- <button onclick="submitEdit(this)" type="submit" id="submit-form">
+              submit
+            </button> -->
+            <!-- <button onclick="submitEdit()" id="submit-form">submit</button> -->
+          </form>
+          <button style="margin-top: 10px" onclick="submitEdit()" id="edit-button">
+            Change Data
+          </button>
+          </form>
+          <button style="margin-top: 10px" onclick="addRow()" id="add-button">
+            Add New Data
+          </button>
+        </section>
+      </section>
+    </section>
+    <footer>
+      <hr class="rounded" />
+      &copy; indahcikalao 2023.
+    </footer>
+
+    <script>
+      let idxEdit = 0;
+
+      function showAddForm(){
+        document.getElementById("edit-data").style.display = "block";
+        document.getElementById("add-title").style.display = "block";
+        document.getElementById("add-button").style.display = "block";
+        document.getElementById("edit-title").style.display = "none";
+        document.getElementById("edit-button").style.display = "none";
+
+        document.getElementById("name").value = '';
+        document.getElementById("age").value = '';
+        document.getElementById("job").value = '';
+        document.getElementById("email").value = '';
+      }
+
+      function addRow() {
+        var table = document.getElementById("people");
+        var newRow = table.insertRow(table.rows.length); // Insert before the last row
+
+        var numCell = newRow.insertCell(0);
+        var nameCell = newRow.insertCell(1);
+        var ageCell = newRow.insertCell(2);
+        var jobCell = newRow.insertCell(3);
+        var emailCell = newRow.insertCell(4);
+        var actCell = newRow.insertCell(5);
+
+        const email = document.getElementById("email").value;
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const job = document.getElementById("job").value;
+
+
+        numCell.innerHTML = `${table.rows.length}`;
+        nameCell.innerHTML = name;
+        ageCell.innerHTML = age;
+        jobCell.innerHTML = job
+        emailCell.innerHTML = email;
+        actCell.innerHTML = `<button onclick="removeRow(this)">Remove</button><button onclick="showEditForm(this)">Edit</button>`;
+      
+        document.getElementById("edit-data").style.display = "none";
+        document.getElementById("add-title").style.display = "none";
+        document.getElementById("add-button").style.display = "none";
+      }
+
+      function removeRow(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+      }
+
+      function showEditForm(button) {
+        document.getElementById("edit-data").style.display = "block";
+        document.getElementById("edit-title").style.display = "block";
+        document.getElementById("edit-button").style.display = "block";
+        document.getElementById("add-title").style.display = "none";
+        document.getElementById("add-button").style.display = "none";
+
+        var data = button.parentNode.parentNode.getElementsByTagName("td");
+
+        idxEdit = parseInt(data[0].textContent);
+        console.log(idxEdit);
+
+        var name = data[1].textContent;
+        var age = data[2].textContent;
+        var job = data[3].textContent;
+        var email = data[4].textContent;
+
+        document.getElementById("name").value = name;
+        document.getElementById("age").value = age;
+        document.getElementById("job").value = job;
+        document.getElementById("email").value = email;
+      }
+
+      function submitEdit() {
+        var data = document
+          .getElementsByTagName("tr")
+          [idxEdit].getElementsByTagName("td");
+
+        const email = document.getElementById("email").value;
+        const name = document.getElementById("name").value;
+        const age = document.getElementById("age").value;
+        const job = document.getElementById("job").value;
+
+        data[1].textContent = name;
+        data[2].textContent = age;
+        data[3].textContent = job;
+        data[4].textContent = email;
+
+        document.getElementById("edit-data").style.display = "none";
+        document.getElementById("edit-title").style.display = "none";
+        document.getElementById("edit-button").style.display = "none";
+      }
+    </script>
+  </body>
+</html>

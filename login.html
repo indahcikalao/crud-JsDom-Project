@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <header class="box header-container">
+      <h1>
+        <a href="/index.html">Cikal's Space</a>
+      </h1>
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search Something" name="search" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </header>
+    <section class="content">
+      <aside class="box">
+        <h2>Navigation</h2>
+        <hr class="rounded" />
+        <ul>
+          <li><a href="/index.html">List</a></li>
+          <li><a href="/tambah.html">Tambah</a></li>
+          <li><a href="/map.html">Map</a></li>
+          <li><a href="/video.html">Video</a></li>
+          <li id="login-nav"><a href="/login.html">Login</a></li>
+          <li id="logout-nav"><a href="/login.html">Logout</a></li>
+        </ul>
+      </aside>
+      <section class="box tambah" id="containter-login">
+        <div class="tambah-title">
+          <h2>Login</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+
+        <form class="form-tambah" id="login-form">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="janedoe@mail.com"
+            required
+          />
+
+          <label for="password" class="form-label">password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="insert your password"
+            required
+          />
+        </form>
+        <button onclick="login()" style="margin-top: 30px">submit</button>
+      </section>
+
+      <section class="box tambah" id="login-berhasil">
+        <div class="tambah-title">
+          <h2>Login anda berhasil!</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </section>
+    </section>
+    <footer>
+      <hr class="rounded" />
+      &copy; indahcikalao 2023.
+    </footer>
+
+    <script>
+      function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (email === "user@mail.com" && password === "123") {
+          document.getElementById("containter-login").style.display = "none";
+          document.getElementById("login-nav").style.display = "none";
+          document.getElementById("logout-nav").style.display = "block";
+          document.getElementById("login-berhasil").style.display = "block";
+          alert("You have successfully logged in.");
+        } else {
+          alert("wrong email/password!");
+        }
+      }
+    </script>
+  </body>
+</html>
